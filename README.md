@@ -20,6 +20,11 @@ where S(q) is a relevance score that evaluates the relevance of the generated qu
 ## Combined Framework
 The interaction between the generator and the retriever ensures that the retriever is constantly challenged and improved, while the generator is guided to produce high-quality challenging queries.
 
+In this experiment, Retriever is trained as a binary classifier to classify a given pair of (query, document) as positive vs negative. The model is initialized with google's BERT large and trained to minimize the retriever's objective mentioned above.
+The positive class score can be used for search ranking or retrieval.
+
+Generator is trained through RL using policy gradient algorithm. The Generator's objective mentioned above is treated as the reward. The model is initialized with google's T5 model (text-2-text) and tuned to maximize the reward.
+
 ## Dataset and Trained models
 The models are trained end-to-end using [Wayfair annotation dataset](https://github.com/wayfair/WANDS).
 
