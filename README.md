@@ -12,10 +12,10 @@ $$\min_R\mathbb{E}_ {\mathcal{(q,d) \in D}}[\mathcal{L}_R(q,d)]$$
 where $\mathcal{L}_R$ is the binary cross-entropy loss.
 
 ## Generator Objective
-The generator GG aims to produce challenging queries that maximize the retriever's loss, while being relevant. The objective function for the generator is:
+The generator **G** aims to produce challenging queries that maximize the retriever's loss, while being relevant. The objective function for the generator is:
 
 $$\max_G \mathbb{E}_{q \sim G}[\mathcal{L}_R(q, R(q)) + S(q)]$$
-where S(q) is a relevance score that evaluates the relevance of the generated queries.
+where S(q) is a relevance score that evaluates the quality of the generated queries.
 
 ## Combined Framework
 The interaction between the generator and the retriever ensures that the retriever is constantly challenged and improved, while the generator is guided to produce high-quality challenging queries.
